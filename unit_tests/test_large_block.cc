@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <allocators_malloc.hpp>
+//#include <allocators_malloc.hpp>
 #include <allocators_mmap.hpp>
 #include <allocators_shm.hpp>
 

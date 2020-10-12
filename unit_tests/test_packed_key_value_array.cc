@@ -10,7 +10,8 @@
 #include <hash.hpp>
 
 #include <atomic_gcc.hpp>
-#include <allocators_malloc.hpp>
+//#include <allocators_malloc.hpp>
+#include <allocators_mmap.hpp>
 #include <math.h>
 
 using namespace jellyfish;

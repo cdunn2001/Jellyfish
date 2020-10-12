@@ -44,7 +44,7 @@ public:
   int get_count() { return count; }
 };
 
-typedef Types<locks::pthread::mutex> Implementations;
+typedef Types<jellyfish::locks::pthread::mutex> Implementations;
 
 TYPED_TEST_CASE(MutexTest, Implementations);
 

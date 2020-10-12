@@ -1,6 +1,6 @@
 #include <fstream>
 #include <gtest/gtest.h>
-#include <unit_test/test_main.hpp>
+#include <unit_tests/test_main.hpp>
 #include <jellyfish/square_binary_matrix.hpp>
 #include <jellyfish/time.hpp>
 

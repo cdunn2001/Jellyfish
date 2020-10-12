@@ -71,7 +71,7 @@ public:
   int get_count_at_signal() { return count_at_signal; }
 };
 
-typedef Types<locks::pthread::cond> Implementations;
+typedef Types<jellyfish::locks::pthread::cond> Implementations;
 
 TYPED_TEST_CASE(CondTest, Implementations);
 
