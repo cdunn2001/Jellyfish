@@ -47,43 +47,10 @@ main_sources = [
     'examples/query_per_sequence/query_per_sequence.cc',
     'examples/jf_count_dump/jf_count_dump.cc',
 ]
-test_sources = [
-    'unit_tests/test_dumpers.cc',
-    'unit_tests/test_large_block.cc',
-    'unit_tests/test_hash_counter.cc',
-    'unit_tests/test_mapped_file.cc',
-    'unit_tests/test_square_binary_matrix.cc',
-    'unit_tests/test_token_ring.cc',
-    'unit_tests/test_main.cc',
-    'unit_tests/test_mer_iterator.cc',
-    'unit_tests/test_allocators_mmap.cc',
-    'unit_tests/test_atomic_bits_array.cc',
-    'unit_tests/test_cond.cc',
-    'unit_tests/test_mer_dna_bloom_counter.cc',
-    'unit_tests/test_file_header.cc',
-    'unit_tests/test_offsets_key_value.cc',
-    'unit_tests/test_packed_key_value_array.cc',
-    'unit_tests/test_stdio_filebuf.cc',
-    'unit_tests/test_int128.cc',
-    'unit_tests/test_whole_sequence_parser.cc',
-    'unit_tests/test_mer_dna.cc',
-    'unit_tests/gtest/src/gtest_main.cc',
-    'unit_tests/gtest/src/gtest-all.cc',
-    'unit_tests/test_stream_iterator.cc',
-    'unit_tests/test_text_dumper.cc',
-    'unit_tests/test_mutex.cc',
-    'unit_tests/test_mer_overlap_sequence_parser.cc',
-    'unit_tests/test_large_hash_array.cc',
-    'unit_tests/test_simple_circular_buffer.cc',
-    'unit_tests/test_rectangular_binary_matrix.cc',
-    'unit_tests/test_cooperative_pool2.cc',
-    'unit_tests/test_generator_manager.cc',
-    'unit_tests/test_mer_heap.cc',
-    'unit_tests/test_misc.cc',
-]
+proj_include_directories = include_directories('include')
 proj_lib = library('jellyfish',
   sources : proj_sources,
-  include_directories : ['include'],
+  include_directories : proj_include_directories,
   dependencies : [],
   install : true,
 )
@@ -141,10 +108,11 @@ install_headers(
   subdir : 'jellyfish'
 )
 proj_dep = declare_dependency(
-  include_directories : ['include'],
+  include_directories : proj_include_directories,
   link_with : proj_lib
 )
 pkg = import('pkgconfig')
 pkg.generate(proj_lib,
   description : 'Fast, memory-efficient counting of DNA k-mers',
 )
+subdir('unit_tests')

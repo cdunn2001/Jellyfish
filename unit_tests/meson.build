@@ -1,0 +1,51 @@
+proj_gtest_cpp_sources = [
+  'gtest/src/gtest_main.cc',
+  'gtest/src/gtest-all.cc',
+  'test_allocators_mmap.cc',
+  'test_atomic_bits_array.cc',
+  'test_cond.cc',
+  'test_cooperative_pool2.cc',
+  'test_dumpers.cc',
+  'test_file_header.cc',
+  'test_generator_manager.cc',
+  'test_hash_counter.cc',
+  'test_int128.cc',
+  'test_large_block.cc',
+  'test_large_hash_array.cc',
+  'test_main.cc',
+  'test_mapped_file.cc',
+  'test_mer_dna.cc',
+  'test_mer_dna_bloom_counter.cc',
+  'test_mer_heap.cc',
+  'test_mer_iterator.cc',
+  'test_mer_overlap_sequence_parser.cc',
+  'test_misc.cc',
+  'test_mutex.cc',
+  'test_offsets_key_value.cc',
+  #'test_packed_key_value_array.cc',
+  'test_rectangular_binary_matrix.cc',
+  'test_simple_circular_buffer.cc',
+  #'test_square_binary_matrix.cc',
+  'test_stdio_filebuf.cc',
+  'test_stream_iterator.cc',
+  'test_text_dumper.cc',
+  'test_token_ring.cc',
+  'test_whole_sequence_parser.cc',
+]
+#proj_gtest_dep = dependency('gtest_main', fallback : ['gtest', 'gtest_main_dep'])
+proj_test = executable(
+  'jellyfish_test',
+  [proj_gtest_cpp_sources],
+  #dependencies : [proj_gtest_dep], # + proj_lib_deps,
+  include_directories : [proj_include_directories] + [include_directories('..')],
+  link_with : [proj_lib],
+  cpp_args : [],
+)
+test(
+  'jellyfish gtest unittests',
+  proj_test,
+  env : [
+    'ARGS=-V',
+    'VERBOSE=1',
+  ]
+)
