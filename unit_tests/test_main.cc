@@ -18,8 +18,8 @@
 #include <iostream>
 #include <fstream>
 #include <gtest/gtest.h>
-#include <unit_tests/test_main_cmdline.hpp>
-#include <unit_tests/test_main.hpp>
+#include "test_main_cmdline.hpp"
+#include "test_main.hpp"
 #include <jellyfish/backtrace.hpp>
 
 template<long int n>
