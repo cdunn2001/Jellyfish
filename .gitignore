@@ -1,3 +1,13 @@
+/MESON/
+.deps/
+/subprojects/packagecache/
+/subprojects/htslib-1.9/
+/compat.sh
+/config.log
+/config.status
+/jellyfish*.pc
+/libtool
+/stamp-h1
 Makefile.in
 aclocal.m4
 autom4te.cache
