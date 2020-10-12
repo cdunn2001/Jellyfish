@@ -10,7 +10,7 @@ proj_gtest_cpp_sources = [
   'test_generator_manager.cc',
   'test_hash_counter.cc',
   'test_int128.cc',
-  'test_large_block.cc',
+  #'test_large_block.cc',
   'test_large_hash_array.cc',
   'test_main.cc',
   'test_mapped_file.cc',

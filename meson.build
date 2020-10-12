@@ -48,10 +48,12 @@ main_sources = [
     'examples/jf_count_dump/jf_count_dump.cc',
 ]
 proj_include_directories = include_directories('include')
+htslib_dep = dependency('htslib', required : true, version : '1.9', fallback : ['htslib', 'htslib_dep'])
+proj_lib_deps = [htslib_dep]
 proj_lib = library('jellyfish',
   sources : proj_sources,
   include_directories : proj_include_directories,
-  dependencies : [],
+  dependencies : proj_lib_deps,
   install : true,
 )
 install_headers(
